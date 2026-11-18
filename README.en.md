@@ -20,11 +20,11 @@
 
 ### Architecture
 
-The pipeline crops an ROI from camera or photo input and keeps preprocessing, measurement (Feature) and decision (Rule) separate. Every threshold is **chosen on Calibration data, frozen, and then checked on an unseen Test set**.
+The ROI is cropped from camera or photo input, and preprocessing → measurement (Feature) → decision (Rule) are kept separate. Thresholds were always **set on Calibration data, frozen, and then checked on an unseen Test**, and the same code was **re-run on photos I took myself (`_02`)** to see where the rules break.
 
-```mermaid
-flowchart LR
-    A[Input<br>Photo · Video · Phone camera] --> B[ROI crop]
+![Rule-Based Machine Vision Inspection Architecture](docs/architecture_en.png)
+
+<br>Photo · Video · Phone camera] --> B[ROI crop]
     B --> C[Preprocessing<br>Gray · CLAHE · Blur · Otsu]
     C --> D{Feature}
     D --> D1[Contour<br>Area Ratio]
@@ -49,7 +49,7 @@ The goal is not a high score but **finding where rules work and where they break
 
 ### Results
 
-The full course was reproduced on the instructor's data, and the same code was **re-run on photos I took myself (a tumbler logo and an eye-drop label)** to see the limits of the rules.
+The same code was also **re-run on photos I took myself (a tumbler logo and an eye-drop label)** to see the limits of the rules.
 
 | Stage | Method | Key result |
 |---|---|---|
@@ -64,9 +64,17 @@ The full course was reproduced on the instructor's data, and the same code was *
 
 **Why I re-ran it on my own photos**
 
-- **The instructor's data has fixed conditions** — the same lighting, distance and angle, so the rules fit well. To see what happens when conditions change, as they do on a real line, I needed different data.
-- **Thresholds are tied to their data** — the Day 3 midpoint 0.560 and the Day 5 values 129 / 0.8664 were computed on the instructor's photos. My photos needed a new Calibration (Day 5: 197 / 0.6497), and the Test still reached only **66.7%**.
-- **Decision** — the instructor's code and results are kept as they are; my runs are stored separately as `_02` code, `_02` configs and `_02` results so the two can be compared side by side.
+- **The practice photos have fixed conditions** — the same lighting, distance and angle, so the rules fit well. To see what happens when conditions change, as they do on a real line, I needed different data.
+- **Thresholds are tied to their data** — the Day 3 midpoint 0.560 and the Day 5 values 129 / 0.8664 were computed on the practice photos. My photos needed a new Calibration (Day 5: 197 / 0.6497), and the Test still reached only **66.7%**.
+- **Decision** — the base code and results are kept as they are; my runs are stored separately as `_02` code, `_02` configs and `_02` results so the two can be compared side by side.
+
+<br>
+
+### WBS Schedule
+
+![OpenCV Machine Vision WBS](docs/wbs_schedule_en.png)
+
+*Day 1 – 8 follow class days · `_02` re-runs were done on the same day as each lesson · Code = file number in `src/`.*
 
 <br>
 
@@ -76,7 +84,7 @@ Solving the same problem with one feature → two features → learned features 
 
 | Key metric | Result |
 |---|---|
-| Scope | Day 1 – 8 · code numbers `00` – `67` · instructor version + my-photo `_02` version |
+| Scope | Day 1 – 8 · code numbers `00` – `67` · base version + my-photo `_02` version |
 | Decision design | Feature and Rule separated · thresholds frozen in `configs/*.json` |
 | Validation rule | Calibration → Rule Freeze → Test · no threshold change after Test |
 | Key lesson | Calibration 91.67% → Test 50% · overlapping values cannot be split by one threshold |
@@ -86,7 +94,7 @@ Evidence → [reports](reports) · [configs](configs)
 
 <br>
 
-### Result Figures
+### Screens
 
 | Day 5 · Calibration feature distribution | Day 7 · Normal validation score distribution |
 |---|---|
@@ -106,7 +114,7 @@ Evidence → [reports](reports) · [configs](configs)
 | [**configs**](configs) | Frozen thresholds (Rule Freeze) | `day05_logo_rules.json` · `day07_anomaly_rules.json`, etc. |
 | [**reports**](reports) | Decision CSVs · metrics | Calibration · Test · Challenge results |
 | [**outputs**](outputs) | Result images | ROI · preprocessing · contour · matching · heatmap |
-| [**samples**](samples) | Input photos · video | Instructor data + my own photos |
+| [**samples**](samples) | Input photos · video | Practice photos + my own photos |
 | [**web**](web) · `src/fastapi_cap_app.py` | Real-time cap inspection web app with a phone camera | MJPEG stream · ROI API |
 
 | Day | Topic | Code |
@@ -160,6 +168,5 @@ python -m uvicorn fastapi_cap_app:app --app-dir src --host 127.0.0.1 --port 8000
 
 ## Notes
 
-- The instructor's practice data was provided for educational use.
 - Bottle images for Day 7 – 8 are from the MVTec AD dataset (bottle) — CC BY-NC-SA 4.0 · non-commercial use · https://www.mvtec.com/company/research/datasets/mvtec-ad
 - Code, configs and results with `_02` are the versions re-run on my own photos.
