@@ -104,11 +104,11 @@ OpenCV 규칙기반 머신비전 실습 프로젝트입니다. 병뚜껑 유무 
 | [**samples**](samples) | 입력 사진 · 영상 | 실습 사진 + 직접 촬영 사진 |
 | [**web**](web) · `src/fastapi_cap_app.py` | 폰 카메라 실시간 병뚜껑 검사 웹 | MJPEG 스트림 · ROI 지정 API |
 
-| 일차 | 주제 | 코드 |
+| 일⁠차 | 주제 | 코드 |
 |---|---|---|
 | 1 | 이미지 · 영상 · 웹캠 · 폰 카메라 입력과 ROI | `00` ~ `08` |
 | 2 | 색 공간 · 밝기 · Gamma · CLAHE · Filter · Sharpen · Otsu | `09` ~ `16` |
-| 3 | Morphology · Contour · Area Ratio Rule · 실시간 웹 검사 | `18` ~ `22` · `cap_inspector.py` · `fastapi_cap_app.py` |
+| 3 | Morphology · Contour · Area Ratio Rule · 실시간 웹 검사 (`cap_inspector.py` · `fastapi_cap_app.py`) | `18` ~ `22` |
 | 4 | GrabCut · MeanShift · Template · ORB · SIFT · Homography | `24` ~ `30` |
 | 5 | Calibration · 복합 Rule · Rule Freeze · Test · 실패 분석 | `33` ~ `39` |
 | 6 | OCR 제조번호 검사 | `40` ~ `49` |
