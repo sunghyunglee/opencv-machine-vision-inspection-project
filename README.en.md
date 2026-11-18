@@ -57,14 +57,6 @@ The same code was also **re-run on photos I took myself (a tumbler logo and an e
 
 <br>
 
-### WBS Schedule
-
-![OpenCV Machine Vision WBS](docs/wbs_schedule_en.png)
-
-*Day 1 – 8 follow class days · `_02` re-runs were done on the same day as each lesson · Code = file number in `src/`.*
-
-<br>
-
 ### Improvements
 
 Solving the same problem with one feature → two features → learned features showed how decisions become stable under changing conditions. Replacing Template matching (0.475 at 15° rotation) with SIFT + Homography made localization **FOUND under rotation and scale**, and the bottle inspection, built from normal images only, **detected 59 of 63 defects**.
@@ -104,16 +96,18 @@ Evidence → [reports](reports) · [configs](configs)
 | [**samples**](samples) | Input photos · video | Practice photos + my own photos |
 | [**web**](web) · `src/fastapi_cap_app.py` | Real-time cap inspection web app with a phone camera | MJPEG stream · ROI API |
 
-| Day | Topic | Code |
-|---|---|---|
-| 1 | Image · video · webcam · phone camera input and ROI | `00` – `08` |
-| 2 | Color space · brightness · gamma · CLAHE · filters · sharpen · Otsu | `09` – `16` |
-| 3 | Morphology · contour · Area Ratio rule · real-time web inspection | `18` – `22` · `cap_inspector.py` · `fastapi_cap_app.py` |
-| 4 | GrabCut · MeanShift · Template · ORB · SIFT · Homography | `24` – `30` |
-| 5 | Calibration · combined rule · Rule Freeze · Test · failure analysis | `33` – `39` |
-| 6 | OCR serial-number inspection | `40` – `49` |
-| 7 | Anomaly Detection (MVTec AD bottle) · heatmap · challenge | `50` – `61` |
-| 8 | One-shot · Few-shot | `62` – `67` |
+| Day | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| Topic | Input · ROI | Preprocess | Contour · Web | Localize | Calibration | OCR | Anomaly | Few-shot |
+| Code | `00~08` | `09~16` | `18~22` | `24~30` | `33~39` | `40~49` | `50~61` | `62~67` |
+
+<br>
+
+### WBS Schedule
+
+![OpenCV Machine Vision WBS](docs/wbs_schedule_en.png)
+
+*Day 1 – 8 follow class days · `_02` re-runs were done on the same day as each lesson · Code = file number in `src/`.*
 
 <br><br>
 

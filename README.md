@@ -57,14 +57,6 @@ OpenCV 규칙기반 머신비전 실습 프로젝트입니다. 병뚜껑 유무 
 
 <br>
 
-### WBS 일정
-
-![OpenCV 머신비전 검사 WBS](docs/wbs_schedule.png)
-
-*1 ~ 8일차는 수업일 기준 · `_02` 재실행은 해당 일차와 같은 날 진행 · 코드 = `src/` 파일 번호입니다.*
-
-<br>
-
 ### 개선 효과
 
 같은 문제를 측정값 하나 → 측정값 둘 → 학습된 특징 순서로 풀면서, 조건 변화에 대한 판정이 안정되는 과정을 확인했습니다. 위치 찾기는 Template(회전 15° 에서 0.475) 대신 SIFT + Homography 로 바꿔 **회전 · 축소에서도 모두 FOUND** 가 됐고, 병 불량 검사는 정상 사진만으로 만든 기준으로 **불량 63장 중 59장을 검출**했습니다.
@@ -104,16 +96,18 @@ OpenCV 규칙기반 머신비전 실습 프로젝트입니다. 병뚜껑 유무 
 | [**samples**](samples) | 입력 사진 · 영상 | 실습 사진 + 직접 촬영 사진 |
 | [**web**](web) · `src/fastapi_cap_app.py` | 폰 카메라 실시간 병뚜껑 검사 웹 | MJPEG 스트림 · ROI 지정 API |
 
-| 일⁠차 | 주제 | 코드 |
-|---|---|---|
-| 1 | 이미지 · 영상 · 웹캠 · 폰 카메라 입력과 ROI | `00` ~ `08` |
-| 2 | 색 공간 · 밝기 · Gamma · CLAHE · Filter · Sharpen · Otsu | `09` ~ `16` |
-| 3 | Morphology · Contour · Area Ratio Rule · 실시간 웹 검사 (`cap_inspector.py` · `fastapi_cap_app.py`) | `18` ~ `22` |
-| 4 | GrabCut · MeanShift · Template · ORB · SIFT · Homography | `24` ~ `30` |
-| 5 | Calibration · 복합 Rule · Rule Freeze · Test · 실패 분석 | `33` ~ `39` |
-| 6 | OCR 제조번호 검사 | `40` ~ `49` |
-| 7 | Anomaly Detection (MVTec AD bottle) · Heatmap · Challenge | `50` ~ `61` |
-| 8 | One-shot · Few-shot | `62` ~ `67` |
+| 일⁠차 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| 주제 | 입력 · ROI | 전처리 | Contour · 웹 | 위치 찾기 | Calibration | OCR | Anomaly | Few-shot |
+| 코드 | `00~08` | `09~16` | `18~22` | `24~30` | `33~39` | `40~49` | `50~61` | `62~67` |
+
+<br>
+
+### WBS 일정
+
+![OpenCV 머신비전 검사 WBS](docs/wbs_schedule.png)
+
+*1 ~ 8일차는 수업일 기준 · `_02` 재실행은 해당 일차와 같은 날 진행 · 코드 = `src/` 파일 번호입니다.*
 
 <br><br>
 
