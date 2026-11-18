@@ -24,19 +24,6 @@ The ROI is cropped from camera or photo input, and preprocessing → measurement
 
 ![Rule-Based Machine Vision Inspection Architecture](docs/architecture_en.png)
 
-<br>Photo · Video · Phone camera] --> B[ROI crop]
-    B --> C[Preprocessing<br>Gray · CLAHE · Blur · Otsu]
-    C --> D{Feature}
-    D --> D1[Contour<br>Area Ratio]
-    D --> D2[Template · ORB · SIFT<br>Homography]
-    D --> D3[OCR<br>Tesseract]
-    D --> D4[ResNet18 features<br>Distance · Similarity]
-    D1 & D2 & D3 & D4 --> E[Calibration<br>Threshold search]
-    E --> F[Rule Freeze<br>configs/*.json]
-    F --> G[Test · Challenge<br>reports/*.csv]
-    G --> H[FastAPI web<br>MJPEG · WebSocket]
-```
-
 <br>
 
 ### Summary
@@ -100,7 +87,7 @@ Evidence → [reports](reports) · [configs](configs)
 |---|---|
 | ![SIFT · Inlier distribution](outputs/day05/calibration/sift_inlier_distribution.png) | ![Validation score distribution](reports/day07_validation_score_distribution.png) |
 
-![Day 7 defect heatmap](outputs/day07/heatmap/broken_large_000_overlay.jpg)
+<p align="center"><img src="outputs/day07/heatmap/broken_large_000_overlay.jpg" width="420" alt="Day 7 defect heatmap"></p>
 
 *Day 7 · Regions that differ from the normal mean, shown as a heatmap.*
 

@@ -24,19 +24,6 @@
 
 ![OpenCV 규칙기반 머신비전 검사 Architecture](docs/architecture.png)
 
-<br>사진 · 영상 · 폰 카메라] --> B[ROI 자르기]
-    B --> C[전처리<br>Gray · CLAHE · Blur · Otsu]
-    C --> D{측정 Feature}
-    D --> D1[Contour<br>Area Ratio]
-    D --> D2[Template · ORB · SIFT<br>Homography]
-    D --> D3[OCR<br>Tesseract]
-    D --> D4[ResNet18 특징<br>거리 · 유사도]
-    D1 & D2 & D3 & D4 --> E[Calibration<br>기준값 탐색]
-    E --> F[Rule Freeze<br>configs/*.json]
-    F --> G[Test · Challenge<br>reports/*.csv]
-    G --> H[FastAPI 웹<br>MJPEG · WebSocket]
-```
-
 <br>
 
 ### 개요
@@ -100,7 +87,7 @@ OpenCV 규칙기반 머신비전 실습 프로젝트입니다. 병뚜껑 유무 
 |---|---|
 | ![SIFT · Inlier 분포](outputs/day05/calibration/sift_inlier_distribution.png) | ![Validation 점수 분포](reports/day07_validation_score_distribution.png) |
 
-![7일차 불량 위치 Heatmap](outputs/day07/heatmap/broken_large_000_overlay.jpg)
+<p align="center"><img src="outputs/day07/heatmap/broken_large_000_overlay.jpg" width="420" alt="7일차 불량 위치 Heatmap"></p>
 
 *7일차 · 정상 평균과 다른 영역을 Heatmap 으로 표시한 결과입니다.*
 
