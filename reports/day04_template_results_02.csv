@@ -1,0 +1,5 @@
+condition,filename,template_score,x,y,center_x,center_y,time_ms
+normal,target_normal_02.jpg,0.999934,300,510,980.00,1255.00,107.800
+shift,target_shift_02.jpg,0.999898,335,530,1015.00,1275.00,93.481
+rot15,target_rot15_02.jpg,0.359880,268,509,948.00,1254.00,91.066
+scale90,target_scale90_02.jpg,0.461142,279,536,959.00,1281.00,81.188

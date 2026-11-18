@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*Zone.Identifier
+.env
+*.pt
+*.pth
+*.safetensors
+*.npz
+artifacts/
+outputs/frames/

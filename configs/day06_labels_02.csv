@@ -1,0 +1,8 @@
+file,actual_text,expected_text,actual_status
+02_product_01_side.png,EKJ511,EKJ511,OK
+02_product_02_side.png,EKJ511,EKJ511,OK
+02_product_03_side.png,EKJ511,EKJ510,NG
+02_product_04_side.png,EKJ511,EKJ511,OK
+02_product_05_side.png,EKJ511,EKJ517,NG
+02_product_06_side.png,EKJ511,EKJ511,OK
+
